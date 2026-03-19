@@ -2,6 +2,15 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4KW8K21TS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J4KW8K21TS');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $page_title ?? "Gerador de Orçamento - Profissional & Gratuito"; ?></title>
     <meta name="description" content="<?php echo $meta_description ?? "Crie orçamentos profissionais, elegantes e minimalistas em menos de 1 minuto. Exporte para PDF e encante seus clientes."; ?>">
