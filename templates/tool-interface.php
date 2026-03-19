@@ -1,120 +1,130 @@
-<div class="container tool-main">
-    <div style="text-align: center; margin-bottom: 3rem;">
-        <h1 style="color: var(--primary); font-size: 2rem;">Gerador de Orçamento para <?php echo $profissao_atual['nome'] ?? 'Profissionais'; ?></h1>
-        <p style="color: var(--text-muted);">Preencha os campos abaixo para gerar um orçamento profissional em menos de 1 minuto.</p>
-    </div>
-
+<div class="container" style="padding: 4rem 0 8rem;">
     <div class="tool-grid">
-        <!-- Form Section -->
-        <div class="card form-card">
-            <h2 style="margin-bottom: 1.5rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                Seus Dados (Profissional)
-            </h2>
-            <div class="form-group">
-                <label>Nome / Empresa</label>
-                <input type="text" id="prof_nome" placeholder="Ex: João Eletricista" oninput="updatePreview()">
-            </div>
-            <div class="form-group">
-                <label>WhatsApp / Telefone</label>
-                <input type="text" id="prof_tel" placeholder="(00) 00000-0000" oninput="updatePreview()">
-            </div>
-            
-            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border);">
-            
-            <h2 style="margin-bottom: 1.5rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                Dados do Cliente
-            </h2>
-            <div class="form-group">
-                <label>Nome do Cliente</label>
-                <input type="text" id="client_nome" placeholder="Ex: Maria Souza" oninput="updatePreview()">
-            </div>
+        <!-- Input Panel -->
+        <div class="input-panel">
+            <div class="sticky-panel">
+                <div style="margin-bottom: 3rem;">
+                    <h1 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Gerador d'Orçamento</h1>
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">Para <?php echo $profissao_atual['nome'] ?? 'especialistas'; ?>.</p>
+                </div>
 
-            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border);">
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Seu Perfil
+                    </h3>
+                    <div class="form-group">
+                        <label>Nome ou Empresa</label>
+                        <input type="text" id="prof_nome" placeholder="Ex: Studio Design Co." oninput="updatePreview()">
+                    </div>
+                    <div class="form-group">
+                        <label>Contato</label>
+                        <input type="text" id="prof_tel" placeholder="Ex: (11) 99999-9999" oninput="updatePreview()">
+                    </div>
+                </div>
 
-            <h2 style="margin-bottom: 1.5rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                Itens do Orçamento
-            </h2>
-            <div id="items-list">
-                <!-- Items will be added here -->
-            </div>
-            <button class="btn btn-secondary" onclick="addItem()" style="background: transparent; border: 2px dashed var(--border); color: var(--text-muted); width: 100%; margin-top: 1rem;">
-                + Adicionar Item
-            </button>
+                <div class="form-section" style="margin-top: 3rem;">
+                    <h3 class="section-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        Destinatário
+                    </h3>
+                    <div class="form-group">
+                        <label>Nome do Cliente</label>
+                        <input type="text" id="client_nome" placeholder="Ex: Maria Clara" oninput="updatePreview()">
+                    </div>
+                </div>
 
-            <div class="form-group" style="margin-top: 2rem;">
-                <label>Prazo e Pagamento</label>
-                <textarea id="obs" rows="3" placeholder="Ex: Prazo de 5 dias úteis. Pagamento via PIX." oninput="updatePreview()"></textarea>
+                <div class="form-section" style="margin-top: 3rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                        <h3 class="section-title" style="margin-bottom: 0;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                            Serviços
+                        </h3>
+                        <button class="btn btn-secondary" onclick="addItem()" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;">+ ITEM</button>
+                    </div>
+                    <div id="items-list">
+                        <!-- Items dynamically rendered here -->
+                    </div>
+                </div>
+
+                <div class="form-section" style="margin-top: 3rem;">
+                    <h3 class="section-title">Termos</h3>
+                    <div class="form-group">
+                        <label>Prazo e Pagamento</label>
+                        <textarea id="obs" rows="3" placeholder="Ex: 5 dias úteis. Pix na entrega." oninput="updatePreview()"></textarea>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Preview Section -->
-        <div class="preview-card" id="pdf-content" style="background: white; border-radius: var(--radius); padding: 4rem; box-shadow: var(--shadow); color: #000;">
-            <div style="display: flex; justify-content: space-between; border-bottom: 2px solid var(--primary); padding-bottom: 2rem; margin-bottom: 2rem;">
-                <div>
-                    <h1 style="color: var(--primary); font-size: 2.5rem; margin: 0;">ORÇAMENTO</h1>
-                    <p id="prev_prof_nome" style="font-weight: 800; font-size: 1.25rem; margin-top: 0.5rem;"></p>
-                    <p id="prev_prof_tel" style="color: var(--text-muted);"></p>
+        <!-- Preview Panel -->
+        <div class="preview-panel">
+            <div class="proposal-box" id="pdf-content">
+                <div class="proposal-header">
+                    <div>
+                        <div style="width: 48px; height: 48px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--accent);">
+                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        </div>
+                        <h1 class="proposal-title">Proposta d'Orçamento</h1>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">Emitido em <?php echo date('d/m/Y'); ?></p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p id="prev_prof_nome" style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.25rem;">Seu Nome</p>
+                        <p id="prev_prof_tel" style="color: var(--text-muted); font-size: 0.875rem;">Seu Contato</p>
+                    </div>
                 </div>
-                <div style="text-align: right;">
-                    <p style="color: var(--text-muted);">Data: <?php echo date('d/m/Y'); ?></p>
+
+                <div style="margin-bottom: 4rem;">
+                    <p style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Preparado para:</p>
+                    <h2 id="prev_client_nome" style="font-size: 1.5rem; font-weight: 700;">Nome do Cliente</h2>
                 </div>
-            </div>
 
-            <div style="margin-bottom: 3rem;">
-                <p style="color: var(--text-muted); font-size: 0.875rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">Para:</p>
-                <h3 id="prev_client_nome" style="font-size: 1.5rem;"></h3>
-            </div>
+                <table class="proposal-table" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Descrição do Serviço</th>
+                            <th style="width: 60px; text-align: center;">Qtd</th>
+                            <th style="width: 120px; text-align: right;">Unitário</th>
+                            <th style="width: 120px; text-align: right;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prev_items"></tbody>
+                </table>
 
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 3rem;">
-                <thead>
-                    <tr style="background: #f1f5f9; text-align: left;">
-                        <th style="padding: 1rem; border-bottom: 2px solid var(--border);">Descrição</th>
-                        <th style="padding: 1rem; border-bottom: 2px solid var(--border); width: 100px;">Qtd</th>
-                        <th style="padding: 1rem; border-bottom: 2px solid var(--border); text-align: right; width: 150px;">Unitário</th>
-                        <th style="padding: 1rem; border-bottom: 2px solid var(--border); text-align: right; width: 150px;">Total</th>
-                    </tr>
-                </thead>
-                <tbody id="prev_items"></tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3" style="padding: 2rem 1rem; text-align: right; font-weight: 800; font-size: 1.5rem;">VALOR TOTAL:</td>
-                        <td id="prev_total" style="padding: 2rem 1rem; text-align: right; font-weight: 800; font-size: 1.5rem; color: var(--primary);">R$ 0,00</td>
-                    </tr>
-                </tfoot>
-            </table>
+                <div class="proposal-total">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Investimento Total</p>
+                    <h2 id="prev_total" style="font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text-main);">R$ 0,00</h2>
+                </div>
 
-            <div style="background: #f8fafc; padding: 2rem; border-radius: 0.5rem; border-left: 4px solid var(--primary);">
-                <p id="prev_obs" style="white-space: pre-wrap; font-size: 0.95rem;"></p>
-            </div>
-            
-            <div style="margin-top: 4rem; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
-                Este orçamento é válido por 10 dias. Gerado em geradordeorcamento.site
+                <div style="margin-top: 6rem; border-top: 1px solid #eee; padding-top: 3rem;">
+                    <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Termos e Condições</h4>
+                    <p id="prev_obs" style="font-size: 0.875rem; color: #444; white-space: pre-wrap; line-height: 1.7;"></p>
+                </div>
+
+                <div style="margin-top: 8rem; text-align: center; border-top: 1px solid #f9f9f9; padding-top: 2rem;">
+                    <p style="font-size: 0.6875rem; color: #ccc; letter-spacing: 0.05em;">Este documento foi gerado profissionalmente via geradordeorcamento.site</p>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Sticky Actions -->
-    <div class="sticky-actions">
-        <div class="container" style="display: flex; gap: 1rem; justify-content: center; padding: 1rem 0;">
-            <button class="btn btn-pdf" onclick="generatePDF()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 0.5rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                Baixar PDF
-            </button>
-            <button class="btn btn-whatsapp" onclick="sendWhatsapp()" style="background: #25d366;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 0.5rem;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7"></path><path d="M16 8l5 5-5 5"></path><path d="M8 13h13"></path></svg>
-                Enviar WhatsApp
-            </button>
-        </div>
-    </div>
+<!-- Bottom Dock Actions -->
+<div class="dock-actions" style="opacity: 0; transform: translateX(-50%) translateY(20px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
+    <button class="btn btn-pdf" onclick="generatePDF()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.5rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Exportar PDF
+    </button>
+    <button class="btn btn-whatsapp" onclick="sendWhatsapp()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.5rem;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        WhatsApp
+    </button>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
 let items = [
-    { desc: 'Serviço de <?php echo $profissao_atual['nome'] ?? ''; ?>', qt: 1, val: 0 }
+    { desc: 'Serviço Profissional de <?php echo $profissao_atual['nome'] ?? ''; ?>', qt: 1, val: 0 }
 ];
 
 function addItem() {
@@ -128,8 +138,10 @@ function updateItem(index, field, value) {
 }
 
 function removeItem(index) {
-    items.splice(index, 1);
-    renderItems();
+    if (items.length > 1) {
+        items.splice(index, 1);
+        renderItems();
+    }
 }
 
 function renderItems() {
@@ -137,11 +149,15 @@ function renderItems() {
     list.innerHTML = '';
     items.forEach((item, i) => {
         list.innerHTML += `
-            <div class="item-row" style="display: grid; grid-template-columns: 1fr 60px 100px 40px; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <input type="text" placeholder="Nome do item" value="${item.desc}" oninput="updateItem(${i}, 'desc', this.value)">
-                <input type="number" value="${item.qt}" oninput="updateItem(${i}, 'qt', this.value)">
-                <input type="number" value="${item.val}" oninput="updateItem(${i}, 'val', this.value)">
-                <button onclick="removeItem(${i})" style="border:0; background:none; color: #ef4444; font-weight:800; cursor:pointer;">&times;</button>
+            <div class="item-row" style="margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                <div style="grid-column: span 4;">
+                    <input type="text" placeholder="Descrição do serviço ou produto" value="${item.desc}" oninput="updateItem(${i}, 'desc', this.value)" style="margin-bottom:0.5rem;">
+                </div>
+                <input type="number" placeholder="Qtd" value="${item.qt}" oninput="updateItem(${i}, 'qt', parseInt(this.value) || 0)">
+                <input type="number" placeholder="Unitário" value="${item.val}" oninput="updateItem(${i}, 'val', parseFloat(this.value) || 0)">
+                <div style="text-align: right;">
+                    <button onclick="removeItem(${i})" style="border:0; background:none; color: #ef4444; font-size: 1.25rem; line-height:1; cursor:pointer; opacity: 0.5;">&times;</button>
+                </div>
             </div>
         `;
     });
@@ -150,9 +166,9 @@ function renderItems() {
 
 function updatePreview() {
     document.getElementById('prev_prof_nome').innerText = document.getElementById('prof_nome').value || 'Seu Nome';
-    document.getElementById('prev_prof_tel').innerText = document.getElementById('prof_tel').value || '(00) 00000-0000';
+    document.getElementById('prev_prof_tel').innerText = document.getElementById('prof_tel').value || 'Seu Contato';
     document.getElementById('prev_client_nome').innerText = document.getElementById('client_nome').value || 'Nome do Cliente';
-    document.getElementById('prev_obs').innerText = document.getElementById('obs').value || 'Observações sobre o serviço...';
+    document.getElementById('prev_obs').innerText = document.getElementById('obs').value || 'Detalhes sobre o prazo, forma de pagamento e validade desta proposta.';
 
     const tbody = document.getElementById('prev_items');
     tbody.innerHTML = '';
@@ -162,98 +178,89 @@ function updatePreview() {
         total += lineTotal;
         tbody.innerHTML += `
             <tr>
-                <td style="padding: 1rem; border-bottom: 1px solid var(--border);">${item.desc}</td>
-                <td style="padding: 1rem; border-bottom: 1px solid var(--border);">${item.qt}</td>
-                <td style="padding: 1rem; border-bottom: 1px solid var(--border); text-align: right;">R$ ${parseFloat(item.val).toFixed(2)}</td>
-                <td style="padding: 1rem; border-bottom: 1px solid var(--border); text-align: right; font-weight: 600;">R$ ${lineTotal.toFixed(2)}</td>
+                <td>${item.desc}</td>
+                <td style="text-align: center;">${item.qt}</td>
+                <td style="text-align: right;">R$ ${item.val.toFixed(2)}</td>
+                <td style="text-align: right; font-weight: 700;">R$ ${lineTotal.toFixed(2)}</td>
             </tr>
         `;
     });
-    document.getElementById('prev_total').innerText = 'R$ ' + total.toFixed(2);
+    document.getElementById('prev_total').innerText = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
     
-    // Save to localStorage
+    // Auto-save
     const data = {
         prof_nome: document.getElementById('prof_nome').value,
         prof_tel: document.getElementById('prof_tel').value,
-        items: items,
         obs: document.getElementById('obs').value
     };
-    localStorage.setItem('last_quote_config', JSON.stringify(data));
+    localStorage.setItem('gerador_v2_profile', JSON.stringify(data));
 }
 
 function generatePDF() {
     const element = document.getElementById('pdf-content');
     const client = document.getElementById('client_nome').value || 'cliente';
     const opt = {
-        margin: 0,
-        filename: `orcamento-${client}.pdf`,
+        margin: [0.5, 0.5, 0.5, 0.5],
+        filename: `proposta-${client.toLowerCase().replace(/ /g, '-')}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        html2canvas: { scale: 3, useCORS: true, letterRendering: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
-    html2pdf().set(opt).from(element).save();
+    
+    document.body.classList.add('is-generating');
+    html2pdf().set(opt).from(element).save().then(() => {
+        document.body.classList.remove('is-generating');
+    });
 }
 
 function sendWhatsapp() {
     const prof = document.getElementById('prof_nome').value || 'Seu Nome';
     const client = document.getElementById('client_nome').value || 'Cliente';
     const total = document.getElementById('prev_total').innerText;
-    const msg = `Olá ${client}, segue seu orçamento gerado por *${prof}*:\n\n` + 
-                items.map(i => `- ${i.desc}: R$ ${(i.qt * i.val).toFixed(2)}`).join('\n') +
-                `\n\n*Total: ${total}*\n\nGerado em geradordeorcamento.site`;
+    const msg = `Olá *${client}*,\n\nSegue a proposta comercial conforme conversamos. O valor total do investimento é *${total}*.\n\nAguardo seu retorno para darmos o próximo passo.\n\nAtenciosamente,\n*${prof}*`;
     const url = "https://wa.me/?text=" + encodeURIComponent(msg);
     window.open(url, '_blank');
 }
 
-// Load from LocalStorage
 window.onload = () => {
-    const saved = localStorage.getItem('last_quote_config');
+    const saved = localStorage.getItem('gerador_v2_profile');
     if (saved) {
         const data = JSON.parse(saved);
         document.getElementById('prof_nome').value = data.prof_nome || '';
         document.getElementById('prof_tel').value = data.prof_tel || '';
         document.getElementById('obs').value = data.obs || '';
-        if (data.items) items = data.items;
     }
     renderItems();
+    
+    // Show dock after a short delay
+    setTimeout(() => {
+        const dock = document.querySelector('.dock-actions');
+        dock.style.opacity = '1';
+        dock.style.transform = 'translateX(-50%) translateY(0)';
+    }, 1000);
 };
 </script>
 
 <style>
-.tool-grid {
-    display: grid;
-    grid-template-columns: 450px 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-@media (max-width: 1024px) {
-    .tool-grid { grid-template-columns: 1fr; }
-    .preview-card { transform: scale(0.9); transform-origin: top center; overflow-x: auto; padding: 1.5rem !important; }
-}
-
-.form-card {
-    padding: 2rem;
-    position: sticky;
-    top: 2rem;
-}
-
-.item-row input {
-    padding: 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-}
-
-.sticky-actions {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+/* Refined form sections */
+.form-section {
     background: white;
-    border-top: 1px solid var(--border);
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
-    z-index: 1000;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
 }
 
-.tool-main { padding-bottom: 100px; }
+@media (max-width: 768px) {
+    .proposal-box {
+        padding: 2rem 1rem !important;
+        font-size: 12px;
+    }
+    .proposal-title { font-size: 1.5rem; }
+    .dock-actions { 
+        width: 90%; 
+        justify-content: space-between;
+        bottom: 1rem;
+    }
+}
 </style>
