@@ -21,34 +21,66 @@ if ($url == '' || $url == '/') {
         </div>
     </section>
 
-    <section id="profissoes" class="container">
-        <h2 style="margin-bottom: 2rem; font-weight: 800;">Serviços por Profissão</h2>
-        <div class="grid">
+    <section id="geradores" class="container" style="margin-top: 5rem;">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-weight: 800; font-size: 2.5rem;">Crie seu Orçamento por Profissão</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Nossa ferramenta é otimizada para mais de 50 áreas de atuação. Escolha sua profissão e comece a gerar orçamentos profissionais em segundos.
+        </p>
+        <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
             <?php foreach ($profissoes as $prof): ?>
-            <a href="/orcamento-<?php echo $prof['id']; ?>-sao-paulo-sp" class="card">
-                <h3><?php echo $prof['nome']; ?></h3>
-                <p><?php echo $prof['descricao']; ?></p>
-                <span style="color: var(--primary); font-weight: 600; margin-top: 1rem; display: block;">Ver cidades &rarr;</span>
+            <a href="/gerador-de-orcamento-<?php echo $prof['id']; ?>" class="card" style="padding: 1.25rem; text-align: center;">
+                <h3 style="font-size: 1rem;"><?php echo $prof['nome']; ?></h3>
+                <span style="font-size: 0.75rem; color: var(--primary); font-weight: 600;">GERAR AGORA &rarr;</span>
             </a>
             <?php endforeach; ?>
         </div>
     </section>
 
-    <section id="cidades" class="container" style="margin-top: 5rem;">
-        <h2 style="margin-bottom: 2rem; font-weight: 800;">Serviços em Destaque</h2>
-        <div class="grid">
-            <?php foreach ($cidades as $city): ?>
-            <a href="/orcamento-eletricista-<?php echo $city['id']; ?>-<?php echo strtolower($city['uf']); ?>" class="card">
-                <h3>Serviços em <?php echo $city['nome']; ?> - <?php echo $city['uf']; ?></h3>
-                <p>Encontre eletricistas, encanadores e pintores qualificados em <?php echo $city['nome']; ?>.</p>
-                <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted);">
-                   + de 50 profissionais disponíveis
-                </div>
-            </a>
-            <?php endforeach; ?>
+    <section class="container" style="margin-top: 8rem; background: var(--primary); color: white; padding: 5rem 3rem; border-radius: 2rem; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Por que usar o nosso Gerador?</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 4rem;">
+            <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 1.5rem; backdrop-filter: blur(10px);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                <h3 style="color: white; margin-bottom: 1rem;">Ultra Rápido</h3>
+                <p style="color: rgba(255,255,255,0.8);">Gere PDFs profissionais no seu celular em menos de 60 segundos.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 1.5rem; backdrop-filter: blur(10px);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+                <h3 style="color: white; margin-bottom: 1rem;">Mobile First</h3>
+                <p style="color: rgba(255,255,255,0.8);">Totalmente otimizado para telas pequenas. Use direto da obra ou do café.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 1.5rem; backdrop-filter: blur(10px);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                <h3 style="color: white; margin-bottom: 1rem;">Sem Cadastro</h3>
+                <p style="color: rgba(255,255,255,0.8);">Não pedimos login nem senha. Seus dados ficam salvos no seu navegador.</p>
+            </div>
         </div>
     </section>
     <?php
+    include 'includes/footer.php';
+
+} elseif (preg_match('/^gerador-de-orcamento-(.*)$/', $url, $matches)) {
+    // MANUAL GENERATOR PAGE: /gerador-de-orcamento-{profissao}
+    $profissao_slug = $matches[1];
+    $profissao_atual = null;
+    foreach ($profissoes as $p) {
+        if ($p['id'] == $profissao_slug) {
+            $profissao_atual = $p;
+            break;
+        }
+    }
+
+    if (!$profissao_atual) {
+        // Fallback or generic
+        $page_title = "Gerador de Orçamento Grátis - Profissional";
+    } else {
+        $page_title = "Gerador de Orçamento para {$profissao_atual['nome']} - Criar em 1 Minuto";
+    }
+
+    $meta_description = "Use nossa ferramenta grátis para criar orçamentos profissionais de {$profissao_atual['nome']}. Exporte para PDF e envie por WhatsApp em menos de 1 minuto.";
+    
+    include 'includes/header.php';
+    include 'templates/tool-interface.php';
     include 'includes/footer.php';
 
 } elseif (preg_match('/^orcamento-(.*)-(.*)-(.*)$/', $url, $matches)) {

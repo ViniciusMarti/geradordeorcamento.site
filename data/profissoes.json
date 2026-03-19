@@ -1,114 +1,54 @@
 [
-  {
-    "id": "eletricista",
-    "nome": "Eletricista",
-    "plural": "eletricistas",
-    "descricao": "Profissionais especializados em instalações e reparos elétricos residenciais e comerciais.",
-    "custo_medio": "R$ 150 - R$ 500",
-    "tempo_medio": "2 a 6 horas"
-  },
-  {
-    "id": "encanador",
-    "nome": "Encanador",
-    "plural": "encanadores",
-    "descricao": "Especialistas em hidráulica, reparo de vazamentos, desentupimento e novas instalações.",
-    "custo_medio": "R$ 120 - R$ 450",
-    "tempo_medio": "1 a 4 horas"
-  },
-  {
-    "id": "pintor",
-    "nome": "Pintor",
-    "plural": "pintores",
-    "descricao": "Serviços de pintura residencial, comercial, texturização e acabamentos de alta qualidade.",
-    "custo_medio": "R$ 20 - R$ 50 por m²",
-    "tempo_medio": "Depends on the area"
-  },
-  {
-    "id": "pedreiro",
-    "nome": "Pedreiro",
-    "plural": "pedreiros",
-    "descricao": "Construção civil, reformas em geral, assentamento de pisos, levantamento de paredes e telhados.",
-    "custo_medio": "R$ 150 - R$ 300 por dia",
-    "tempo_medio": "Varia por projeto"
-  },
-  {
-    "id": "diarista",
-    "nome": "Diarista",
-    "plural": "diaristas",
-    "descricao": "Serviços de limpeza residencial e comercial, organização e manutenção de ambientes.",
-    "custo_medio": "R$ 150 - R$ 250 por diária",
-    "tempo_medio": "4 a 8 horas"
-  },
-  {
-    "id": "montador-de-moveis",
-    "nome": "Montador de Móveis",
-    "plural": "montadores de móveis",
-    "descricao": "Montagem e desmontagem de móveis de todos os tipos e marcas com ferramentas profissionais.",
-    "custo_medio": "R$ 80 - R$ 350",
-    "tempo_medio": "1 a 5 horas"
-  },
-  {
-    "id": "tecnico-de-ar-condicionado",
-    "nome": "Técnico de Ar Condicionado",
-    "plural": "técnicos de ar condicionado",
-    "descricao": "Instalação, manutenção preventiva e corretiva, e limpeza de aparelhos de ar condicionado.",
-    "custo_medio": "R$ 250 - R$ 600",
-    "tempo_medio": "2 a 4 horas"
-  },
-  {
-    "id": "chaveiro",
-    "nome": "Chaveiro",
-    "plural": "chaveiros",
-    "descricao": "Abertura de portas, cópias de chaves, troca de segredo e instalação de fechaduras eletrônicas.",
-    "custo_medio": "R$ 80 - R$ 300",
-    "tempo_medio": "30 min a 2 horas"
-  },
-  {
-    "id": "jardineiro",
-    "nome": "Jardineiro",
-    "plural": "jardineiros",
-    "descricao": "Manutenção de jardins, corte de grama, poda de árvores e paisagismo em geral.",
-    "custo_medio": "R$ 100 - R$ 400",
-    "tempo_medio": "2 a 6 horas"
-  },
-  {
-    "id": "gesseiro",
-    "nome": "Gesseiro",
-    "plural": "gesseiros",
-    "descricao": "Instalação de gesso acartonado (drywall), molduras, forros e sancas decorativas.",
-    "custo_medio": "R$ 40 - R$ 90 por m²",
-    "tempo_medio": "Varia por projeto"
-  },
-  {
-    "id": "vidraceiro",
-    "nome": "Vidraceiro",
-    "plural": "vidraceiros",
-    "descricao": "Instalação de vidros temperados, espelhos, box de banheiro e fechamento de sacadas.",
-    "custo_medio": "R$ 200 - R$ 800",
-    "tempo_medio": "2 a 8 horas"
-  },
-  {
-    "id": "marceneiro",
-    "nome": "Marceneiro",
-    "plural": "marceneiros",
-    "descricao": "Criação e reparo de móveis planejados, portas, janelas e estruturas em madeira.",
-    "custo_medio": "R$ 500+ (depende do projeto)",
-    "tempo_medio": "Varia por projeto"
-  },
-  {
-    "id": "limpeza-pos-obra",
-    "nome": "Limpeza Pós Obra",
-    "plural": "equipes de limpeza pós obra",
-    "descricao": "Limpeza profunda e técnica após reformas e construções, removendo resíduos finos e pesados.",
-    "custo_medio": "R$ 10 - R$ 30 por m²",
-    "tempo_medio": "1 a 3 dias"
-  },
-  {
-    "id": "dedetizador",
-    "nome": "Dedetizador",
-    "plural": "dedetizadores",
-    "descricao": "Controle de pragas, cupins, formigas, baratas e roedores com produtos certificados.",
-    "custo_medio": "R$ 200 - R$ 600",
-    "tempo_medio": "1 a 3 horas"
-  }
+  { "id": "eletricista", "nome": "Eletricista", "slug": "eletricista" },
+  { "id": "encanador", "nome": "Encanador", "slug": "encanador" },
+  { "id": "pintor", "nome": "Pintor", "slug": "pintor" },
+  { "id": "pedreiro", "nome": "Pedreiro", "slug": "pedreiro" },
+  { "id": "diarista", "nome": "Diarista", "slug": "diarista" },
+  { "id": "designer-grafico", "nome": "Designer Gráfico", "slug": "designer-grafico" },
+  { "id": "fotografo", "nome": "Fotógrafo", "slug": "fotografo" },
+  { "id": "mecanico", "nome": "Mecânico", "slug": "mecanico" },
+  { "id": "jardineiro", "nome": "Jardineiro", "slug": "jardineiro" },
+  { "id": "marceneiro", "nome": "Marceneiro", "slug": "marceneiro" },
+  { "id": "programador", "nome": "Programador", "slug": "programador" },
+  { "id": "social-media", "nome": "Social Media", "slug": "social-media" },
+  { "id": "cabeleireiro", "nome": "Cabeleireiro", "slug": "cabeleireiro" },
+  { "id": "manicure", "nome": "Manicure", "slug": "manicure" },
+  { "id": "barbeiro", "nome": "Barbeiro", "slug": "barbeiro" },
+  { "id": "tecnico-de-informatica", "nome": "Técnico de Informática", "slug": "tecnico-de-informatica" },
+  { "id": "instalador-de-cameras", "nome": "Instalador de Câmeras", "slug": "instalador-de-cameras" },
+  { "id": "ar-condicionado", "nome": "Técnico de Ar Condicionado", "slug": "ar-condicionado" },
+  { "id": "chaveiro", "nome": "Chaveiro", "slug": "chaveiro" },
+  { "id": "gesseiro", "nome": "Gesseiro", "slug": "gesseiro" },
+  { "id": "vidraceiro", "nome": "Vidraceiro", "slug": "vidraceiro" },
+  { "id": "fisioterapeuta", "nome": "Fisioterapeuta", "slug": "fisioterapeuta" },
+  { "id": "personal-trainer", "nome": "Personal Trainer", "slug": "personal-trainer" },
+  { "id": "nutricionista", "nome": "Nutricionista", "slug": "nutricionista" },
+  { "id": "psicologo", "nome": "Psicólogo", "slug": "psicologo" },
+  { "id": "advogado", "nome": "Advogado", "slug": "advogado" },
+  { "id": "contador", "nome": "Contador", "slug": "contador" },
+  { "id": "arquiteto", "nome": "Arquiteto", "slug": "arquiteto" },
+  { "id": "engenheiro-civil", "nome": "Engenheiro Civil", "slug": "engenheiro-civil" },
+  { "id": "corretor-de-imoveis", "nome": "Corretor de Imóveis", "slug": "corretor-de-imoveis" },
+  { "id": "professor-particular", "nome": "Professor Particular", "slug": "professor-particular" },
+  { "id": "tradutor", "nome": "Tradutor", "slug": "tradutor" },
+  { "id": "redator", "nome": "Redator", "slug": "redator" },
+  { "id": "editor-de-video", "nome": "Editor de Vídeo", "slug": "editor-de-video" },
+  { "id": "animador-de-festas", "nome": "Animador de Festas", "slug": "animador-de-festas" },
+  { "id": "cozinheiro-particular", "nome": "Cozinheiro Particular", "slug": "cozinheiro-particular" },
+  { "id": "confeiteiro", "nome": "Confeiteiro", "slug": "confeiteiro" },
+  { "id": "carreteiro", "nome": "Carreteiro / Fretes", "slug": "carreteiro" },
+  { "id": "montador-de-moveis", "nome": "Montador de Móveis", "slug": "montador-de-moveis" },
+  { "id": "serralheiro", "nome": "Serralheiro", "slug": "serralheiro" },
+  { "id": "estofador", "nome": "Estofador", "slug": "estofador" },
+  { "id": "dedetizador", "nome": "Dedetizador", "slug": "dedetizador" },
+  { "id": "limpeza-pos-obra", "nome": "Limpeza Pós Obra", "slug": "limpeza-pos-obra" },
+  { "id": "piscineiro", "nome": "Piscineiro", "slug": "piscineiro" },
+  { "id": "cerimonialista", "nome": "Cerimonialista", "slug": "cerimonialista" },
+  { "id": "maquiadora", "nome": "Maquiadora", "slug": "maquiadora" },
+  { "id": "depiladora", "nome": "Depiladora", "slug": "depiladora" },
+  { "id": "massoterapeuta", "nome": "Massoterapeuta", "slug": "massoterapeuta" },
+  { "id": "relojoeiro", "nome": "Relojoeiro", "slug": "relojoeiro" },
+  { "id": "sapateiro", "nome": "Sapateiro", "slug": "sapateiro" },
+  { "id": "costureira", "nome": "Costureira", "slug": "costureira" },
+  { "id": "alfaiate", "nome": "Alfaiate", "slug": "alfaiate" }
 ]

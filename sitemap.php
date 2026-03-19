@@ -18,7 +18,17 @@ echo '    <changefreq>daily</changefreq>' . PHP_EOL;
 echo '    <priority>1.0</priority>' . PHP_EOL;
 echo '  </url>' . PHP_EOL;
 
-// All combinations
+// Manual Generators
+foreach ($profissoes as $prof) {
+    $url = $base_url . "/gerador-de-orcamento-" . $prof['id'];
+    echo '  <url>' . PHP_EOL;
+    echo '    <loc>' . $url . '</loc>' . PHP_EOL;
+    echo '    <changefreq>monthly</changefreq>' . PHP_EOL;
+    echo '    <priority>0.9</priority>' . PHP_EOL;
+    echo '  </url>' . PHP_EOL;
+}
+
+// Programmatic SEO Combinations (City + Profession)
 foreach ($profissoes as $prof) {
     foreach ($cidades as $city) {
         $url = $base_url . "/orcamento-" . $prof['id'] . "-" . $city['id'] . "-" . strtolower($city['uf']);

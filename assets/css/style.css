@@ -203,7 +203,42 @@ footer {
   color: white;
 }
 
+.btn-pdf { background: var(--primary); color: white; border-radius: 99px; }
+.btn-whatsapp { background: #22c55e; color: white; border-radius: 99px; }
+
+.item-row input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#pdf-content {
+    font-family: 'Inter', sans-serif !important;
+}
+
+@media print {
+    .sticky-actions, header, footer { display: none; }
+    body { background: white; }
+    .container { max-width: 100%; padding: 0; }
+}
+
+.preview-card {
+    transition: all 0.3s ease;
+}
+
+/* Scrollbar for the tool items */
+#items-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+#items-list::-webkit-scrollbar { width: 6px; }
+#items-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  .grid { grid-template-columns: 1fr; }
+    .preview-card {
+        padding: 2rem !important;
+        margin-top: 2rem;
+    }
 }
