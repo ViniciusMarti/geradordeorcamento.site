@@ -8,78 +8,75 @@ $cidades = load_data('data/cidades.json');
 $url = $_GET['url'] ?? '';
 
 if ($url == '' || $url == '/') {
-    // HOMEPAGE - PREMIUM DESIGN
-    $page_title = "Gerador de Orçamentos Profissionais & Minimalistas";
-    $meta_description = "Gere propostas comerciais elegantes e profissionais em menos de 1 minuto. Exporte para PDF e encante seus clientes.";
+    // HOMEPAGE - REFINAÇÃO VISUAL
+    $page_title = "Gerador de Orçamento Profissional & Minimalista - Grátis";
+    $meta_description = "Gere orçamentos e propostas comerciais impecáveis em segundos. No celular ou PC, a melhor ferramenta para seu negócio.";
     include 'includes/header.php';
     ?>
     <section class="hero container">
-        <h1 style="color: var(--text-main);">Propostas que <br><span style="color: var(--accent);">contam uma história.</span></h1>
-        <p>Mais que um simples gerador de PDF. Criamos a ponte de confiança entre você e seu cliente com design minimalista e elegância profissional.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
-            <a href="#geradores" class="btn btn-primary" style="padding: 1rem 2rem;">CRIAR MEU ORÇAMENTO</a>
-            <a href="#features" class="btn btn-secondary" style="padding: 1rem 2rem;">SAIBA MAIS</a>
+        <h1>Propostas que <span style="color: var(--accent);">elevam</span> o seu nível.</h1>
+        <p>A ferramenta minimalista que transforma orçamentos em propostas de alto valor em menos de 1 minuto.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <a href="#geradores" class="btn btn-primary">ESCOLHER CATEGORIA</a>
+            <a href="#features" class="btn btn-secondary">COMO FUNCIONA?</a>
         </div>
     </section>
 
-    <div style="background: var(--bg-secondary); padding: 8rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-        <section id="geradores" class="container">
-            <div style="text-align: center; margin-bottom: 5rem;">
-                <h2 style="font-size: 2.5rem; letter-spacing: -0.05em; margin-bottom: 1.5rem;">Escolha sua Especialidade</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Nossa ferramenta é otimizada para mais de 50 áreas de atuação, entregando o layout ideal para sua profissão.</p>
+    <section id="geradores" style="background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.25rem; margin-bottom: 1rem;">Selecione sua Profissão</h2>
+                <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto; line-height: 1.6;">Otimizamos o layout de cada proposta para as necessidades específicas da sua área de atuação.</p>
             </div>
-            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
                 <?php 
                 $count = 0;
                 foreach ($profissoes as $prof): 
                     if ($count < 12):
                         $count++;
                 ?>
-                <a href="/gerador-de-orcamento-<?php echo $prof['id']; ?>" class="card" style="text-align: center; padding: 1.5rem;">
-                    <h3 style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.5rem;"><?php echo $prof['nome']; ?></h3>
-                    <span style="font-size: 0.6875rem; color: var(--accent); font-weight: 700; letter-spacing: 0.1em;">GO &rarr;</span>
+                <a href="/gerador-de-orcamento-<?php echo $prof['id']; ?>" class="card">
+                    <h3><?php echo $prof['nome']; ?></h3>
+                    <span>GERAR AGORA &rarr;</span>
                 </a>
                 <?php 
                     endif;
                 endforeach; ?>
             </div>
             <div style="text-align: center; margin-top: 4rem;">
-                <p style="color: var(--text-muted); font-size: 0.875rem;">E mais outras 40+ profissões disponíveis para você.</p>
+                <p style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500;">Disponível para mais de 50 outras profissões no sistema.</p>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <section id="features" class="container" style="padding: 10rem 0;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 6rem; align-items: center;">
+    <section id="features" class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 5rem; align-items: center;">
             <div>
-                <h2 style="font-size: 3rem; line-height: 1.1; margin-bottom: 2rem;">Design que <br>transmite valor.</h2>
-                <p style="color: var(--text-muted); font-size: 1.125rem; margin-bottom: 2rem;">Cada orçamento gerado segue uma hierarquia tipográfica rigorosa e espaçamentos equilibrados, garantindo que sua proposta seja lida e valorizada rapidamente.</p>
-                <div style="display: flex; gap: 2rem; margin-top: 4rem;">
+                <h2 style="font-size: 2.5rem; line-height: 1.1; margin-bottom: 1.5rem;">Sua apresentação é o seu cartão de visitas.</h2>
+                <p style="color: var(--text-muted); font-size: 1.125rem; margin-bottom: 2.5rem; line-height: 1.7;">Muitos orçamentos são perdidos por falta de clareza e profissionalismo. Nosso design limpo garante que seu cliente entenda o valor real do seu trabalho.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                     <div>
-                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">60s</h4>
-                        <p style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Tempo Médio</p>
+                        <h4 style="font-size: 1.5rem; color: var(--accent);">60s</h4>
+                        <p style="font-size: 0.8125rem; text-transform: uppercase; font-weight: 700; color: #999; letter-spacing: 1px;">Tempo Médio</p>
                     </div>
                     <div>
-                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">100%</h4>
-                        <p style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Grátis</p>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">∞</h4>
-                        <p style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Downloads</p>
+                        <h4 style="font-size: 1.5rem; color: var(--accent);">PDF</h4>
+                        <p style="font-size: 0.8125rem; text-transform: uppercase; font-weight: 700; color: #999; letter-spacing: 1px;">Layout d'Elite</p>
                     </div>
                 </div>
             </div>
-            <div style="background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 4rem; border: 1px solid var(--border);">
-                 <div style="background: white; border-radius: 4px; padding: 2rem; box-shadow: var(--shadow-md);">
-                    <div style="height: 1.5rem; width: 100px; background: var(--bg-secondary); margin-bottom: 1.5rem; border-radius: 2px;"></div>
+            <div style="background: var(--bg-secondary); border-radius: 1.5rem; padding: 3rem; border: 1px solid var(--border);">
+                 <div style="background: white; border-radius: 8px; padding: 2rem; box-shadow: var(--shadow-md); opacity: 0.9;">
+                    <div style="height: 1.25rem; width: 80px; background: var(--bg-secondary); margin-bottom: 1.5rem; border-radius: 4px;"></div>
                     <div style="height: 1px; width: 100%; background: var(--border); margin-bottom: 1.5rem;"></div>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div style="height: 0.75rem; width: 100%; background: #fafaf9; border-radius: 2px;"></div>
-                        <div style="height: 0.75rem; width: 90%; background: #fafaf9; border-radius: 2px;"></div>
-                        <div style="height: 0.75rem; width: 40%; background: #fafaf9; border-radius: 2px;"></div>
+                        <div style="height: 0.5rem; width: 100%; background: #F9F9F9; border-radius: 4px;"></div>
+                        <div style="height: 0.5rem; width: 100%; background: #F9F9F9; border-radius: 4px;"></div>
+                        <div style="height: 0.5rem; width: 60%; background: #F9F9F9; border-radius: 4px;"></div>
                     </div>
                     <div style="margin-top: 3rem; text-align: right;">
-                        <div style="display: inline-block; height: 1.5rem; width: 120px; background: var(--accent); border-radius: 2px; opacity: 0.3;"></div>
+                        <div style="display: inline-block; height: 1.25rem; width: 100px; background: var(--accent); border-radius: 4px; opacity: 0.2;"></div>
                     </div>
                  </div>
             </div>

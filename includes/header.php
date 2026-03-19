@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $page_title ?? "Gerador de Orçamentos Online - Profissional & Minimalista"; ?></title>
-    <meta name="description" content="<?php echo $meta_description ?? "Gere orçamentos profissionais, elegantes e minimalistas em menos de 1 minuto. Exporte para PDF e encante seus clientes."; ?>">
+    <title><?php echo $page_title ?? "Gerador de Orçamento - Profissional & Gratuito"; ?></title>
+    <meta name="description" content="<?php echo $meta_description ?? "Crie orçamentos profissionais, elegantes e minimalistas em menos de 1 minuto. Exporte para PDF e encante seus clientes."; ?>">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,26 +24,26 @@
     <header>
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <a href="/" class="logo">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                <span>gerador d'orçamento</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>Gerador de Orçamento</span>
             </a>
-            <nav class="nav-links">
-                <a href="#geradores" class="nav-link">Profissões</a>
-                <a href="/gerador-de-orcamento-eletricista" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">CRIAR AGORA</a>
+            <nav style="display: flex; gap: 2rem; align-items: center;">
+                <a href="/#geradores" style="text-decoration:none; color:var(--text-muted); font-size:1rem; font-weight:600;">Profissões</a>
+                <a href="/gerador-de-orcamento-eletricista" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8125rem;">CRIAR AGORA</a>
             </nav>
         </div>
     </header>
     <?php if (isset($breadcrumbs) && $breadcrumbs): ?>
-    <div class="container" style="margin-top: 1rem;">
-        <nav class="breadcrumbs" aria-label="Breadcrumb" style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
+    <div class="container" style="margin-top: 1.5rem;">
+        <nav aria-label="Breadcrumb" style="color: var(--text-muted); font-size: 0.8125rem; font-weight: 500;">
             <ol style="list-style: none; display: flex; gap: 0.5rem; padding: 0;">
                 <?php foreach ($breadcrumbs as $index => $crumb): ?>
                     <li>
-                        <?php if ($index > 0): ?> <span style="margin-right: 0.5rem; opacity: 0.3;">/</span> <?php endif; ?>
+                        <?php if ($index > 0): ?> <span style="margin-right: 0.5rem; opacity: 0.5;">/</span> <?php endif; ?>
                         <?php if ($crumb['url']): ?>
                             <a href="<?php echo $crumb['url']; ?>" style="color: inherit; text-decoration: none;"><?php echo $crumb['name']; ?></a>
                         <?php else: ?>
-                            <span style="color: var(--text-main); font-weight: 600;"><?php echo $crumb['name']; ?></span>
+                            <span style="color: var(--text-main); font-weight: 700;"><?php echo $crumb['name']; ?></span>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>

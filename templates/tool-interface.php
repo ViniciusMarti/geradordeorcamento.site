@@ -4,7 +4,7 @@
         <div class="input-panel">
             <div class="sticky-panel">
                 <div style="margin-bottom: 3rem;">
-                    <h1 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Gerador d'Orçamento</h1>
+                    <h1 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Gerador de Orçamento</h1>
                     <p style="color: var(--text-muted); font-size: 0.875rem;">Para <?php echo $profissao_atual['nome'] ?? 'especialistas'; ?>.</p>
                 </div>
 
@@ -65,7 +65,7 @@
                         <div style="width: 48px; height: 48px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--accent);">
                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                         </div>
-                        <h1 class="proposal-title">Proposta d'Orçamento</h1>
+                        <h1 class="proposal-title">Proposta de Orçamento</h1>
                         <p style="color: var(--text-muted); font-size: 0.875rem;">Emitido em <?php echo date('d/m/Y'); ?></p>
                     </div>
                     <div style="text-align: right;">
@@ -217,7 +217,14 @@ function sendWhatsapp() {
     const prof = document.getElementById('prof_nome').value || 'Seu Nome';
     const client = document.getElementById('client_nome').value || 'Cliente';
     const total = document.getElementById('prev_total').innerText;
-    const msg = `Olá *${client}*,\n\nSegue a proposta comercial conforme conversamos. O valor total do investimento é *${total}*.\n\nAguardo seu retorno para darmos o próximo passo.\n\nAtenciosamente,\n*${prof}*`;
+    
+    let itemsText = items.map(i => {
+        const val = parseFloat(i.val) || 0;
+        const totalItem = (parseInt(i.qt) || 0) * val;
+        return `• *${i.desc}* (${i.qt}x): R$ ${totalItem.toFixed(2)}`;
+    }).join('\n');
+
+    const msg = `Olá *${client}*,\n\nSegue a proposta conforme conversamos:\n\n${itemsText}\n\n*Investimento Total: ${total}*\n\nAtenciosamente,\n*${prof}*\n\nGerado via geradordeorcamento.site`;
     const url = "https://wa.me/?text=" + encodeURIComponent(msg);
     window.open(url, '_blank');
 }
