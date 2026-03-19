@@ -198,10 +198,18 @@ function updatePreview() {
 
 function generatePDF() {
     const element = document.getElementById('pdf-content');
-    const client = document.getElementById('client_nome').value || 'cliente';
+    const clientRaw = document.getElementById('client_nome').value || 'cliente';
+    
+    // Simple slugify for filename
+    const clientSlug = clientRaw.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, "") // Remove accents
+        .replace(/[^a-z0-9]/g, '-') // Replace non-alphanumeric with -
+        .replace(/-+/g, '-') // Remove multiple -
+        .replace(/^-|-$/g, ''); // Trim -
+
     const opt = {
         margin: [0.5, 0.5, 0.5, 0.5],
-        filename: `proposta-${client.toLowerCase().replace(/ /g, '-')}.pdf`,
+        filename: `proposta-${clientSlug || 'cliente'}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 3, useCORS: true, letterRendering: true },
         jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
