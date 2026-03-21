@@ -12,9 +12,11 @@
       gtag('config', 'G-J4KW8K21TS');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png?v=2.0">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png?v=2.0">
     <title><?php echo $page_title ?? "Gerador de Orçamento - Profissional & Gratuito"; ?></title>
     <meta name="description" content="<?php echo $meta_description ?? "Crie orçamentos profissionais, elegantes e minimalistas em menos de 1 minuto. Exporte para PDF e encante seus clientes."; ?>">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
